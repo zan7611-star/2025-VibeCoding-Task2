@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZAN · 程式小白 — 個人網站與作品集</title>
-    <meta name="description" content="這是程式小白ZAN的個人品牌網站，用於介紹個人背景、核心技能、精選作品集，並提供多種聯絡方式。網站採用深色主題設計，注重專業性與閱讀舒適度。">
+    <title>ZAN · 一位程式小白 — 個人品牌網站與作品集</title>
+    <meta name="description" content="這是前端工程師ZAN的個人品牌網站，用於介紹個人背景、核心技能、精選作品集，並提供多種聯絡方式。網站採用深色主題設計，注重專業性與閱讀舒適度。">
     <style>
         /* CSS:BASE-START */
         /* 全站基底樣式 */
@@ -225,6 +225,22 @@
         .about-text {
             max-width: 600px;
         }
+        
+        .about-image {
+            margin-top: var(--spacing-unit);
+            border-radius: 50%; /* 讓頭像看起來像圓形 */
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 4px solid var(--color-primary);
+        }
+
+        .about-image img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+        }
         /* CSS:ABOUT-END */
 
         /* CSS:SKILLS-START */
@@ -281,6 +297,12 @@
 
         .project-card h3 {
             color: var(--color-primary);
+        }
+        
+        .project-image {
+            margin-bottom: var(--spacing-unit);
+            border-radius: 4px;
+            overflow: hidden;
         }
         /* CSS:PROJECTS-END */
 
@@ -339,10 +361,12 @@
             }
 
             .about-image {
-                flex: 1;
-                max-width: 300px;
+                /* 確保圖片在桌面版仍維持圓形和大小 */
+                width: 200px; 
+                height: 200px;
+                flex-shrink: 0;
             }
-
+            
             /* Projects 區改為雙欄 */
             .project-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -385,25 +409,25 @@
         <main>
             <section id="hero" class="section section-hero">
                 <div class="container">
-                    <h1 class="hero-title">個人網站主視覺區</h1>
-                    <p class="hero-subtitle">歡迎來到我的開發者空間。這裡將會放上我的**一句話自我介紹**與**核心職稱**（例如：專注於 Vue.js 的前端開發者）。</p>
+                    <h1 class="hero-title">個人品牌網站主視覺區</h1>
+                    <p class="hero-subtitle">歡迎來到我的開發者空間。這裡將會放上我的**一句話自我介紹**與**核心職稱**（例如：專注於 Vue.js 的一位程式小白）。</p>
                     <p>這是一個行動呼籲區塊，未來可能會包含「<a href="#projects" class="hero-cta">瀏覽作品集</a>」或「<a href="mailto:hello@example.com" class="hero-cta">立即聯絡我</a>」等按鈕。</p>
                     <div class="hero-image-placeholder">
-                        <img src="https://source.unsplash.com/800x600/?developer,laptop,minimal" alt="在簡潔桌面使用筆電撰寫程式碼的前端開發者形象照，展現專業與專注。" loading="lazy">
+                        <img src="https://source.unsplash.com/1200x600/?technology,coding" alt="深色背景下正在撰寫程式碼的筆電，具有科技感和專業性。" loading="lazy">
                     </div>
                     <p class="placeholder-tip">之後會用 Section SDD 的 Prompt 產生正式文案與版面，請把新的 **&lt;section&gt; 程式碼整段貼在這兩個註解中間**，完全取代現在這一區。</p>
                 </div>
             </section>
             <section id="about" class="section section-about" aria-labelledby="about-heading">
                 <div class="container about-content">
+                    <div class="about-image">
+                        <img src="https://source.unsplash.com/400x400/?person,portrait" alt="一張男性專業形象照的佔位圖，未來將替換為個人大頭照。" loading="lazy">
+                    </div>
                     <div class="about-text">
                         <h2 id="about-heading" class="section-title">關於我</h2>
                         <p>這裡目前是 About 區的占位內容，未來會用 Section SDD 產生更完整的**個人背景與故事**。</p>
                         <p>這部分會詳述我的工作經驗、技術理念與個人特質，幫助您更了解我的專業能力與價值觀。</p>
                         <p class="placeholder-tip">之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 **&lt;section&gt; 程式碼整段貼在這兩個註解中間**，完全取代現在這一區。</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://source.unsplash.com/400x400/?portrait,professional" alt="一張專業形象照的佔位圖，未來將替換為個人大頭照。" loading="lazy">
                     </div>
                 </div>
             </section>
@@ -430,14 +454,18 @@
                     <p>這部分將展示 3 到 6 個最具代表性的個人或合作專案，包含專案名稱、技術棧與成果連結。</p>
                     <div class="project-grid">
                         <article class="project-card">
-                            <h3>專案一：網站標題</h3>
-                            <img src="https://source.unsplash.com/600x400/?webapp,ui" alt="專案一的介面截圖佔位圖" loading="lazy">
+                            <div class="project-image">
+                                <img src="https://source.unsplash.com/600x400/?ui,ux" alt="專案一的數據儀表板介面截圖佔位圖" loading="lazy">
+                            </div>
+                            <h3>專案一：數據管理後台</h3>
                             <p>這個卡片會放上專案簡介與技術亮點。</p>
                             <a href="https://example.com/project-1" target="_blank">查看專案連結</a>
                         </article>
                         <article class="project-card">
+                            <div class="project-image">
+                                <img src="https://source.unsplash.com/600x400/?web,design" alt="專案二的電商網站首頁設計截圖佔位圖" loading="lazy">
+                            </div>
                             <h3>專案二：應用程式介面</h3>
-                            <img src="https://source.unsplash.com/600x400/?dashboard,coding" alt="專案二的儀表板介面佔位圖" loading="lazy">
                             <p>這裡是用來描述專案目標與你在其中的貢獻。</p>
                             <a href="https://example.com/project-2" target="_blank">查看專案連結</a>
                         </article>
